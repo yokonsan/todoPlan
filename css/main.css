@@ -1,0 +1,42 @@
+input{
+    width: 500px;
+    border: none;
+    padding: 5px 10px;
+    background: #eee;
+    outline: none;
+}
+form{
+    background: #eee;
+    border-bottom: 1px solid #ccc;
+    padding: 0;
+}
+#header{
+    background: #27ae60;
+    padding: 10px 0;
+    margin-bottom: 20px;
+}
+.navbar{
+    color: #fff;
+    font-weight: 600;
+    text-align: center;
+}
+.wrap{
+    margin: 0 auto;
+    width: 600px;
+    text-align: center;
+}
+.todo,.done{
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.1);
+	box-shadow: 0 1px 3px rgba(0,0,0,.1);
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.item{
+    background: #fff;
+    border-bottom: 1px solid #ccc;
+    padding: 5px 10px;
+    text-align: left;
+}
+

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>计划</title>
+    <link rel="stylesheet" href="lib/normalize.min.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div id="app">
+        <div id="header">
+            <div class="navbar">
+                搞事情
+            </div>
+        </div>
+        <div id="main">
+            <div class="wrap">
+                <div class="title">
+                    <h2>计划列表</h2>
+                </div>
+            </div>
+            
+            <div class="content">
+                
+                <div class="wrap">
+                        
+                    <h4>未完成</h4>
+                    <div class="todo">
+                        <form action="" @submit.prevent="merge">
+                            <input type="text" placeholder="你想搞事吗。。。" autocomplete="off" v-model="current.title">
+                            <button type="submit">submit</button>
+                        </form>
+                        <div class="plan-list">
+                            <div class="plan item" v-for="(todo, index) in todoList">
+                                {{ todo.title }}
+                                <button @click="remove(todo.id)">删除</button>
+                                <button @click="setCurrent(todo)">更新</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="wrap">
+                    <h4>已完成</h4>
+                    <div class="done">
+                        <div class="plan-list">
+                            <div class="over item">1111</div>
+                            <div class="over item">1111</div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <div id="footer">
+    
+        </div>
+    </div>
+
+    <script src="lib/vue.js"></script>
+    <script src="js/myStorage.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
