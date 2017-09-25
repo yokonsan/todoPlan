@@ -7,6 +7,8 @@
         return copyVal;
     }
 
+    
+
     new Vue({
         el: '#app',
         data: {
@@ -45,6 +47,7 @@
                 this.todoList.splice(index, 1);
                 // ms.set('todoList', this.todoList)
             },
+
             // 回车后清空表单
             resetCurrent: function() {
                 this.setCurrent({});
@@ -63,6 +66,12 @@
                     return item.id == id;
                 });
             },
+
+            // 完成与未完成
+            toggleComplete: function(id) {
+                var index = this.find_index(id);
+                Vue.set(this.todoList[index], 'completed', !this.todoList[index].completed)
+            }
         },
 
         // 将每次改动传给localStorage

@@ -1,9 +1,38 @@
+.float-left{
+    float: left;
+}
+.float-right{
+    float: right;
+}
+svg {fill: #999;}
+svg:hover{fill: #000;}
 input{
-    width: 500px;
+    width: 88%;
     border: none;
-    padding: 5px 10px;
+    padding: 10px 10px;
     background: #eee;
     outline: none;
+}
+button{
+    border: none;
+    background: #fff;
+    cursor: pointer;
+    color: #888;
+    padding: 0;
+    margin-right: 5px;
+    outline: none;
+}
+button[type="submit"]{
+    background: #eee;
+    border: 1px solid #ccc;
+    padding: 0;
+    margin: 8px 15px;
+    height: 22px;
+    border-radius: 50%;
+    float: right;
+}
+button:hover{
+    color: #333;
 }
 form{
     background: #eee;
@@ -20,23 +49,25 @@ form{
     font-weight: 600;
     text-align: center;
 }
-.wrap{
+#main{
+    width: 50%;
     margin: 0 auto;
-    width: 600px;
+}
+.wrap{
     text-align: center;
 }
 .todo,.done{
     border: 1px solid #ccc;
     border-radius: 3px;
     -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.1);
-	box-shadow: 0 1px 3px rgba(0,0,0,.1);
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
+    box-shadow: 0 1px 3px rgba(0,0,0,.1);
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
 }
 .item{
     background: #fff;
     border-bottom: 1px solid #ccc;
-    padding: 5px 10px;
+    padding: 10px 10px;
     text-align: left;
 }
 
