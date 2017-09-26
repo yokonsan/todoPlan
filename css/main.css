@@ -7,10 +7,20 @@
 svg {fill: #999;}
 svg:hover{fill: #000;}
 input{
-    width: 88%;
+    width: 50%;
     border: none;
     padding: 10px 10px;
-    background: #eee;
+    background: inherit;
+    outline: none;
+}
+
+textarea{
+    padding: 10px;
+    box-sizing: border-box;
+    width: 100%;
+    resize: none;
+    border: 1px solid #ccc;
+    border-radius: 3px;
     outline: none;
 }
 button{
@@ -22,11 +32,11 @@ button{
     margin-right: 5px;
     outline: none;
 }
-button[type="submit"]{
-    background: #eee;
+.inputBtn,.btn{
+    background: inherit;
     border: 1px solid #ccc;
     padding: 0;
-    margin: 8px 15px;
+    margin: 8px 15px 0 0;
     height: 22px;
     border-radius: 50%;
     float: right;
@@ -34,10 +44,39 @@ button[type="submit"]{
 button:hover{
     color: #333;
 }
-form{
+.detailBtn{
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #248630;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+}
+/*vue event css*/
+.highlight{
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #1e9e06;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+}
+/**/
+.todoForm{
     background: #eee;
     border-bottom: 1px solid #ccc;
     padding: 0;
+}
+/*vue event*/
+.focusStyle{
+    background: #fff;
+    border: 2px solid #ccc;
+}
+p{
+    margin: 0;
+    padding: 5px;
 }
 #header{
     background: #27ae60;
@@ -70,4 +109,23 @@ form{
     padding: 10px 10px;
     text-align: left;
 }
-
+.detail{
+    margin-top: 10px;
+    border-top: 1px solid #ccc;
+    padding: 10px 20px 0 20px;
+    font-size: 14px;
+    color: #555;
+}
+.done{
+    margin-bottom: 20px;
+}
+.title{
+    border: 1px solid #ccc;
+    padding: 6px 5px;
+    border-radius: 3px;
+    background: #27ae60;
+    color: #fff;
+    margin: 20px 0 10px;
+    font-size: 16px;
+    font-weight: 600;
+}

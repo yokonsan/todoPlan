@@ -14,6 +14,10 @@
         data: {
             todoList: [],
             current: {},
+            isFocus: false,
+            detailShow: false,
+            isLight: false,
+            isDetail: false,
         },
 
         // 获得localStorage的todolist
@@ -30,7 +34,8 @@
                     var index = this.find_index(id);
                     Vue.set(this.todoList, index, copy(this.current));
                 } else{
-                    var title = this.current.title
+                    var title = this.current.title;
+                    var detail = this.current.detail;
                     if (!title && title !== 0) return;
     
                     var todo = copy(this.current);
@@ -71,6 +76,14 @@
             toggleComplete: function(id) {
                 var index = this.find_index(id);
                 Vue.set(this.todoList[index], 'completed', !this.todoList[index].completed)
+            },
+
+            // 显示详细
+            showDetail: function(id) {
+                var index = this.find_index(id);
+                var detail = this.todoList[index].detail;
+                
+                return detail ? detail : '';
             }
         },
 
