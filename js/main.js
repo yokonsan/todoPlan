@@ -7,7 +7,7 @@
         return copyVal;
     }
 
-    
+    var song = document.getElementById('song');
 
     new Vue({
         el: '#app',
@@ -17,12 +17,18 @@
             isFocus: false,
             detailShow: false,
             isLight: false,
-            isDetail: false,
+            song: song,
         },
 
         // 获得localStorage的todolist
         mounted: function() {
+            var me = this;
             this.todoList = ms.get('todoList') || this.todoList;
+
+            // 打开应用提醒
+            setInterval(function() {
+                me.showAlerted();
+            },1000);
         },
 
         methods: {
@@ -64,6 +70,7 @@
             // 更新todo副本，不使用current=todo
             setCurrent: function(todo) {
                 this.current = copy(todo);
+                this.isFocus = true;
             },
             // 封装查找index
             find_index: function(id) {
@@ -82,8 +89,41 @@
             showDetail: function(id) {
                 var index = this.find_index(id);
                 var detail = this.todoList[index].detail;
+                var alerted = this.todoList[index].datetime;
                 
-                return detail ? detail : '';
+                var detailDiv = document.getElementById(id);
+                if (detail || alerted) {
+                    if (detailDiv.style.display === "block") {
+                        detailDiv.style.display = "none";
+                    } else{
+                        detailDiv.style.display = "block";
+                        
+                    }
+                }
+            },
+
+            // 提醒
+            showAlerted: function() {
+                var me = this;
+                
+                this.todoList.forEach(function(ele, i) {
+                    var alertedTime = ele.datetime;
+                    if (!alertedTime || ele.alerted_confirmed) return;
+
+                    var alertedTime = (new Date(alertedTime)).getTime();
+                    var now = (new Date()).getTime();
+                    
+                    if (now >= alertedTime) {
+                        me.songPlay();
+                        var confirmed = confirm('时间到：' + ele.title + '\n' + '详情：' + ele.detail);
+                        Vue.set(me.todoList[i], 'alerted_confirmed', confirmed);
+                    }
+                });
+            },
+            // music
+            songPlay: function() {
+                
+                this.song.play();
             }
         },
 
