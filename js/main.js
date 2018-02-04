@@ -18,12 +18,14 @@
             detailShow: false,
             isLight: false,
             song: song,
+			lastId: 0,
         },
 
         // 获得localStorage的todolist
         mounted: function() {
             var me = this;
             this.todoList = ms.get('todoList') || this.todoList;
+			this.lastId = ms.get('lastId') || this.lastId;
 
             // 打开应用提醒
             setInterval(function() {
@@ -65,7 +67,9 @@
             },
             // 给每个计划添加id键
             nextId: function() {
-                return this.todoList.length + 1;
+				this.lastId += 1;
+				ms.set('lastId', this.lastId);
+                return this.lastId;
             },
             // 更新todo副本，不使用current=todo
             setCurrent: function(todo) {
